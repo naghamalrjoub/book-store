@@ -1,3 +1,4 @@
-.item {
-    padding: 105px;
+.search-bar {
+    width: 100%;
+    max-width: 400px;
 }
