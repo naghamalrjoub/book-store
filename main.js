@@ -50,7 +50,6 @@ async function fetchBooks() {
         button.className = "btn btn-primary addToCartBtn";
         cardBody.append(button);
         button.addEventListener("click", () => addToCart(books[i]));
-
     }
 }
 
@@ -82,15 +81,14 @@ let totalBooks = 0, priceForPayment = 0;
 let cartArray = [];
 const addToCart = (book) => {
     if (!emptyCart.classList.contains("d-none")) {
-        emptyCart.classList.add("d-none");
-        notEmptyCart.classList.remove("d-none");
+        hideEmptyCart();
     }
         
     totalBooks++;
     console.log(totalBooks);
     let findBook = cartArray.find(item => item === book.isbn13);
     if (findBook) {
-
+        
     }
 
     else {
@@ -156,11 +154,17 @@ const appendBook = (book) => {
     removeButton.href = "#";
     removeButton.className = "btn btn-outline-danger";
     removeButton.id = "removeFromCartBtn"
+    removeButton.addEventListener("click", () => removeFromCart(card, book))
     removeButton.innerText = "remove from cart";
     cardFooter.append(removeButton);
     let actualPrice = book.price.slice(1);
     priceForPayment += parseFloat(actualPrice);
     console.log(priceForPayment);
+    editCheckout(priceForPayment.toFixed(2));
+}
+
+
+const editCheckout = (priceForPayment) => {
 
     //edit the total price & total items section
     const totalPriceSpan = document.querySelector("#totalPriceSpan");
@@ -169,10 +173,25 @@ const appendBook = (book) => {
     totalItemsSpan.innerText = totalBooks; 
 }
 
-const removeFromCart = () => {
+
+const removeFromCart = (card, book) => {
     totalBooks--;
+    card.remove();
+    let actualPrice = book.price.slice(1);
+    priceForPayment -= parseFloat(actualPrice);
+    editCheckout(priceForPayment.toFixed(2));
     if (totalBooks == 0 && emptyCart.classList.contains("d-none")) {
-       emptyCart.classList.remove("d-none")
+       viewEmptyCart();
     }
+}
+
+const viewEmptyCart = () => {
+    emptyCart.classList.remove("d-none")
+    notEmptyCart.classList.add("d-none");
+}
+
+const hideEmptyCart = () => {
+    emptyCart.classList.add("d-none")
+    notEmptyCart.classList.remove("d-none");
 }
 
