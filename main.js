@@ -57,26 +57,39 @@ fetchBooks();
 
 const cartButton = document.querySelector("#cartButton");
 const homeButton = document.querySelector("#homeButton");
+const accountButton = document.querySelector("#Account");
+
 const Cart = document.querySelector("#Cart");
 const main = document.querySelector("main");
 
-//switch between cart and home page
+//switch between cart, home page, account page
 const viewCart = () => {
     Cart.classList.remove("d-none");
     main.classList.add("d-none");
+    Account.classList.add("d-none");
 }
 
 const viewHomePage = () => {
     Cart.classList.add("d-none");
     main.classList.remove("d-none");
+    Account.classList.add("d-none");
+}
+
+const viewAccountPage = () => {
+    Cart.classList.add("d-none");
+    main.classList.add("d-none");
+    Account.classList.remove("d-none");
 }
 
 cartButton.addEventListener("click", viewCart);
 homeButton.addEventListener("click", viewHomePage);
+accountButton.addEventListener("click", viewAccountPage);
 
 
 const emptyCart = document.querySelector("#emptyCart");
 const notEmptyCart = document.querySelector("#notEmptyCart")
+const Account = document.querySelector("#accountPage")
+
 let totalBooks = 0, priceForPayment = 0;
 let cartArray = [];
 const addToCart = (book) => {
@@ -186,7 +199,7 @@ const removeFromCart = (card, book) => {
 }
 
 const viewEmptyCart = () => {
-    emptyCart.classList.remove("d-none")
+    emptyCart.classList.remove("d-none");
     notEmptyCart.classList.add("d-none");
 }
 
@@ -194,4 +207,16 @@ const hideEmptyCart = () => {
     emptyCart.classList.add("d-none")
     notEmptyCart.classList.remove("d-none");
 }
+
+const signUpLink = document.querySelector("#signUpLink");
+const signUpPage = document.querySelector("#signUp");
+const logInPage = document.querySelector("#logIn");
+
+const viewSignUpPage = () =>
+{
+    signUpPage.classList.remove("d-none");
+    logInPage.classList.add("d-none");
+}
+
+signUpLink.addEventListener("click", () => viewSignUpPage())
 

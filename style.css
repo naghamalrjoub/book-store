@@ -23,3 +23,25 @@ header p {
     margin-top: auto;
     align-self: flex-end;
 }
+
+#logInForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#logInBtn {
+    align-self: flex-end;
+}
+
+#signUpForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#signUpForm h1 {
+    align-self: center;
+}
+
+#signUpButton {
+    align-self: flex-end;
+}

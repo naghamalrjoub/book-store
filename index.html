@@ -132,7 +132,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Account</a>
+                            <a href="#" class="nav-link" id="Account">Account</a>
                         </li> 
                         <li class="nav-item" >
                             <a href="#" id="cartButton" class="nav-link">Cart</a>
@@ -192,6 +192,79 @@
             </div>
 
             
+        </div>
+    </div>
+
+    <div id="accountPage" class="d-none">
+        <div id="logIn" class="container-fluid d-flex justify-content-center mt-5">
+            <form id="logInForm">
+                <h1 class="pb-4">Log in to your account</h1>
+                <div>
+                    <div class="mb-3">
+                        <label for="inputEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" placeholder="john.doe@gmail.com" id="inputEmail">
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="inputPassword">
+                        <div class="d-flex justify-content-between">
+                            <button id="forgetPassword" class="form-text btn btn-link text-secondary p-0">forget password</button>       
+                            <button class="form-text btn btn-link text-secondary p-0" id="signUpLink">create account</button>                 
+                        </div>
+
+                    </div>  
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="rememberMe">
+                        <label for="rememberMe" class="form-check-label">Remember me</label>
+                    </div>                  
+                </div>
+                <button class="btn btn-primary" id="logInBtn">log in</button>
+            </form>
+        </div>
+
+        <div id="signUp" class="container-fluid d-flex justify-content-center mt-5 d-none">
+            <form id="signUpForm" class="w-50">
+                <h1 class="mb-3">Create account</h1>
+                <div>
+                    <div class="mb-3">
+                        <lable class="form-label">Email</lable>
+                        <input type="email" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control">
+                    </div>
+                    <div class="mb-3 d-flex justify-content-between">
+                        <div class="w-50 pe-2">
+                            <label class="form-label">Address 1</label>
+                            <input type="text" class="form-control" placeholder="Irbid Hashmi St">
+                        </div>
+                        <div class="w-50 ps-2"> 
+                            <label class="form-label">Address 2 (optional)</label>
+                            <input type="text" class="form-control" placeholder="Irbid University St">
+                        </div>                        
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <div class="w-50 pe-2">
+                            <label class="form-label">Country</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="w-25 px-2"> 
+                            <label class="form-label">City</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="w-25 ps-2">
+                            <label class="form-label">Zip Code</label>
+                            <input type="number" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" id="signUpButton">Sign Up</button>
+            </form>
         </div>
     </div>
     <script src="main.js"></script>
