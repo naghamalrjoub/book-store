@@ -192,6 +192,9 @@ const removeFromCart = (card, book) => {
     card.remove();
     let actualPrice = book.price.slice(1);
     priceForPayment -= parseFloat(actualPrice);
+    priceForPayment = Math.abs(priceForPayment);
+    let idx = cartArray.indexOf(book.isbn13);
+    cartArray.splice(idx, 1);
     editCheckout(priceForPayment.toFixed(2));
     if (totalBooks == 0 && emptyCart.classList.contains("d-none")) {
        viewEmptyCart();
